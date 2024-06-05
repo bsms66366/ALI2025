@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "ALI2025",
-    "slug": "ALI2025",
+    "name": "ALI2024",
+    "slug": "ALI2024",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
+    // "assetPrefix": "/assets/",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -13,7 +14,17 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan barcodes.",
+        "NSMicrophoneUsageDescription": "We need access to the microphone to use siri.",
+        "NSPrivacyAccessedAPICategoryDiskSpace": "This app checks your device's storage space to see how much free space is available.",
+        "NSPrivacyAccessedAPICategoryFileTimestamp": "This app may access timestamps of files on your device.",
+        "NSPrivacyAccessedAPICategorySystemBootTime": "This app may access the time your device last booted up to measure internal performance or enable accurate timers. No personal information is collected.",
+        "NSPrivacyAccessedAPICategoryUserDefaults": "This app stores information on your device to remember your preferences and settings",
+        "UIBackgroundModes": ["fetch"]
+    },
+    "bundleIdentifier": "com.cjtaylormade.ALI2024"
     },
     "android": {
       "adaptiveIcon": {
@@ -27,7 +38,9 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-asset",
+      "expo-font"
     ],
     "experiments": {
       "typedRoutes": true
