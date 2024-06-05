@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, Dimensions, Image, ScrollView, Pressable } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
-import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/native';
+import { NavigationProp, ParamListBase, useNavigation, NavigationContainer } from '@react-navigation/native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { GestureResponderEvent } from "react-native";
 
 export default function ({ navigation }: { navigation: NavigationProp<ParamListBase, string> }) {
   const { height, width } = Dimensions.get('window');
-  const navigation = useNavigation();
+  //const navigate = useNavigation();
 
 const boxBorderStyle = {
     marginTop: 10,
@@ -24,47 +24,53 @@ const boxBorderStyle = {
 
   return (
     <View style={styles.v_container}>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap' }}>
-          <View style={[boxBorderStyle, { width: (width / 2) - 2 }]}>
-            <Pressable onPress={() => navigation.navigate("PAScreen")}/>
-              <Image source={require('@/assets/images/interfaceIcons_Artboard7.png')} style={styles.IconStyle} />
-              <Text style={styles.titleText}>Physicians Associates</Text>
-            </Pressable>
-          </View>
-          <View style={[boxBorderStyle, { width: (width / 2) - 10 }]}>
-            <Pressable onPress={() => navigation.navigate('MedNeuroScreen')}>
-              <Image source={require('@/assets/images/interfaceIcons_Artboard30.png')} style={styles.IconStyle} />
-              <Text style={styles.titleText}>Medical Neuroscience</Text>
-            </Pressable>
-          </View>
-          <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
-            <Pressable onPress={() => navigation.navigate('BioMedScreen')}>
-              <Image source={require('@/assets/images/interfaceIcons_Artboard31.png')} style={styles.IconStyle} />
-              <Text style={styles.titleText}>Biomedical Science</Text>
-            </Pressable>
-          </View>
-          <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
-            <Pressable onPress={() => navigation.navigate('PostGradScreen')}>
-              <Image source={require('@/assets/images/interfaceIcons_Artboard32.png')} style={styles.IconStyle} />
-              <Text style={styles.titleText}>Post Graduate</Text>
-            </Pressable>
-          </View>
-          <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
-            <Pressable onPress={() => navigation.navigate('HealthProfScreen')}>
-              <Image source={require('@/assets/images/interfaceIcons_Artboard22.png')} style={styles.IconStyle} />
-              <Text style={styles.titleText}>Health Professionals</Text>
-            </Pressable>
-          </View>
-          <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
-            <Pressable onPress={() => navigation.navigate('PubDisScreen')}>
-              <Image source={require('@/assets/images/interfaceIcons_Artboard24.png')} style={styles.IconStyle} />
-           <Text style={styles.titleText}> Public Display</Text>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row', flexWrap: 'wrap' }}>
+        <View style={[boxBorderStyle, { width: (width / 2) - 2 }]}>
+          <Pressable onPress={() => navigation.navigate("PAScreen")}>
+            <Image source={require('@/assets/images/interfaceIcons_Artboard7.png')} style={styles.IconStyle} />
+            <Text style={styles.titleText}>Physicians Associates</Text>
+          </Pressable>
+        </View>
+  
+        <View style={[boxBorderStyle, { width: (width / 2) - 10 }]}>
+          <Pressable onPress={() => navigation.navigate('MedNeuroScreen')}>
+            <Image source={require('@/assets/images/interfaceIcons_Artboard30.png')} style={styles.IconStyle} />
+            <Text style={styles.titleText}>Medical Neuroscience</Text>
+          </Pressable>
+        </View>
+  
+        <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
+          <Pressable onPress={() => navigation.navigate('BioMedScreen')}>
+            <Image source={require('@/assets/images/interfaceIcons_Artboard31.png')} style={styles.IconStyle} />
+            <Text style={styles.titleText}>Biomedical Science</Text>
+          </Pressable>
+        </View>
+  
+        <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
+          <Pressable onPress={() => navigation.navigate('PostGradScreen')}>
+            <Image source={require('@/assets/images/interfaceIcons_Artboard32.png')} style={styles.IconStyle} />
+            <Text style={styles.titleText}>Post Graduate</Text>
+          </Pressable>
+        </View>
+  
+        <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
+          <Pressable onPress={() => navigation.navigate('HealthProfScreen')}>
+            <Image source={require('@/assets/images/interfaceIcons_Artboard22.png')} style={styles.IconStyle} />
+            <Text style={styles.titleText}>Health Professionals</Text>
+          </Pressable>
+        </View>
+  
+        <View style={[boxBorderStyle, { width: (width / 3) - 10 }]}>
+          <Pressable onPress={() => navigation.navigate('PubDisScreen')}>
+            <Image source={require('@/assets/images/interfaceIcons_Artboard24.png')} style={styles.IconStyle} />
+            <Text style={styles.titleText}>Public Display</Text>
           </Pressable>
         </View>
       </View>
-      </View>  
-    );
-}
+    </View>
+  );
+  
+  }
 
 const styles = StyleSheet.create({
 
